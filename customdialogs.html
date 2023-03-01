@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>CSE 134B Homework 4 Custom Dialogs</title>
+	<meta name="Author" content="Jason Win">
+    <script src="customdialog.js"></script>
+    <script type="text/javascript" src="/node_modules/dompurify/dist/purify.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Custom Dialogs</h1>
+        <button id="alertBtn">Alert</button>
+        <button id="confirmBtn">Confirm</button>
+        <button id="promptBtn">Prompt</button>
+
+        <dialog id="customAlert">
+            <p>Alert pressed!</p>
+            <form method="dialog">
+                <button>Ok</button>
+            </form>
+        </dialog>
+
+        <dialog id="customConfirm">
+            <p>Do you confirm this?</p>
+            <form method="dialog">
+                <button id="cancelBtn1">Cancel</button>
+                <button id="okBtn1">Ok</button>
+            </form>
+        </dialog>
+
+        <dialog id="customPrompt">
+            <form method="dialog">
+                <label for="userName">What is your name?</label>
+                <br>
+                <input type="text" id="userName" name="userName">
+            </form>
+            <form method="dialog">
+                <button id="cancelBtn2">Cancel</button>
+                <button id="okBtn2">Ok</button>
+            </form>
+        </dialog>
+
+        <hr>
+        <output id="functionResult"></output>
+
+        <script type="module"> 
+            import {customAlert, customConfirm, customPrompt} from './customdialog.js';
+
+            customAlert();
+            customConfirm();
+            customPrompt();
+        </script>
+    </main>
+</body>
+
+</html>
