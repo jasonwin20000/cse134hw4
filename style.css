@@ -1,0 +1,95 @@
+* {
+    font-family: "Consolas", monospace;
+}
+
+:root {
+    --blue: rgb(64, 180, 184);
+    --white: rgb(248, 230, 207);
+}
+
+nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5vh;
+    line-height: 3vh;
+    background-color: #eee;
+    padding: 5px;
+}
+
+a {
+    background-color: var(--blue);
+    color: var(--white);
+    border: 1px solid;
+    padding: 0.5rem;
+    text-align: center;
+    transition: all 0.5s ease-out;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: darkcyan;
+    color: black;
+}
+
+h1 {
+    padding-top: 5vh;
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 100%;
+    }
+  
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+#profilePic {
+    width: 20vh;
+}
+
+#profilePic:hover {
+    transform: scale(1.5);
+}
+
+#experience {
+    height: 50vh;
+}
+
+#contactMe {
+    height: 10vh;
+}
+
+@media only screen and (max-width: 767px) {
+    #car {
+        width: 480px;
+        height: 360px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #car {
+        width: 640px; 
+        height: 480px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #car {
+        width: 1024px; 
+        height: 768px;
+    }
+}
