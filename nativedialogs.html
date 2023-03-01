@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>CSE 134B Homework 4 Simple Dialogs</title>
+	<meta name="Author" content="Jason Win">
+    <script type="text/javascript" src="/node_modules/dompurify/dist/purify.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Simple Dialogs</h1>
+        <button id="alertBtn">Alert</button>
+        <button id="confirmBtn">Confirm</button>
+        <button id="promptBtn">Prompt</button>
+        <button id="saferPromptBtn">Safer Prompt</button>
+        <hr>
+        <output id="functionResult"></output>
+    </main>
+
+    <script>
+        const alertBtn = document.getElementById("alertBtn");
+        const confirmBtn = document.getElementById("confirmBtn");
+        const promptBtn = document.getElementById("promptBtn");
+        const saferPromptBtn = document.getElementById("saferPromptBtn");
+
+
+        alertBtn.addEventListener("click", function () {
+            alert("Alert pressed!");
+        }
+        , false
+        );
+
+        confirmBtn.addEventListener("click", () => {
+            let confirmOutput = "";
+            if (confirm("Do you confirm this?")) {
+                confirmOutput = "The value returned by the confirm method is : true";
+            }    
+            else {
+                confirmOutput = "The value returned by the confirm method is : false";
+            }
+            document.getElementById("functionResult").innerText = confirmOutput;
+        }
+        , false
+        );
+
+        promptBtn.addEventListener("click", function() {
+            let userName = prompt("What is your name?");
+            if (userName == null || userName == "") {
+                document.getElementById("functionResult").innerText = "User didn't enter anything";
+            }
+            else {
+                document.getElementById("functionResult").innerText = `Prompt Result: ${userName}`;
+            }
+        }
+        , false
+        );
+
+        saferPromptBtn.addEventListener("click", function() {
+            let userName = prompt("What is your name?");
+            if (userName == null || userName == "") {
+                document.getElementById("functionResult").innerText = "User didn't enter anything";
+            }
+            else {
+                let cleaned = DOMPurify.sanitize(userName);
+                document.getElementById("functionResult").innerText = `Prompt Result: ${cleaned}`;
+            }
+        }
+        , false
+        );
+    </script>
+</body>
+
+</html>
