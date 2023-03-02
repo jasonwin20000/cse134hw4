@@ -71,6 +71,7 @@ function insertBlogPost() {
             let deleteContent = newPost.childNodes[0];
             newPost.removeChild(deleteContent);
             newPost.appendChild(newContent);
+            localStorage.setItem('posts', JSON.stringify(blogPosts));
         }, {once: true}); 
     });
 
@@ -80,5 +81,8 @@ function insertBlogPost() {
         newPost.nextElementSibling.remove();
         newPost.remove();
         blogPosts.splice(newPost, 1);
+        localStorage.setItem('posts', JSON.stringify(blogPosts));
     }); 
+
+    localStorage.setItem('posts', JSON.stringify(blogPosts));
 }
