@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>CSE 134B Homework 4 Simple CRUD</title>
+	<meta name="Author" content="Jason Win">
+    <script type = "text/javascript" src="./blog.js"></script>
+</head>
+
+<main>
+    <body>
+        <header>
+            <h1>Blog Posts</h1>
+        </header>
+        
+        <div id="blogPosts"></div>
+
+        <hr>
+        <button id="newPostBtn">Add Blog Post</button>
+
+        <dialog id="customPrompt">
+            <form method="dialog">
+                <label for="blogTitle">Blog Title: </label>
+                <input type="text" id="blogTitle" name="blogTitle">
+                <br>
+                <label for="blogDate">Blog Date: </label>
+                <input type="date" id="blogDate" name="blogDate">
+                <br>
+                <label for="blogSummary">Blog Summary: </label>
+                <br>
+                <input type="textarea" id="blogSummary" name="blogSummary">
+                <br>
+            </form>
+            <form method="dialog">
+                <button id="cancelBtn">Cancel</button>
+                <button id="saveBtn">Save</button>
+            </form>
+        </dialog>
+
+        <dialog id="editPrompt">
+            <form method="dialog">
+                <label for="editTitle">Edit Title: </label>
+                <input type="text" id="editTitle" name="editTitle">
+                <br>
+                <label for="editDate">Edit Date: </label>
+                <input type="date" id="editDate" name="editDate">
+                <br>
+                <label for="editSummary">Edit Summary: </label>
+                <br>
+                <input type="textarea" id="editSummary" name="editSummary">
+                <br>
+            </form>
+            <form method="dialog">
+                <button id="cancelBtn2">Cancel</button>
+                <button id="saveBtn2">Save</button>
+            </form>
+        </dialog>
+
+        <script type="module">
+            import {newBlogPost} from './blog.js'
+
+            newBlogPost();
+        </script>
+    </body>
+</main>
+
+</html>

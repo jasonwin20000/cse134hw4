@@ -39,8 +39,7 @@ export function customPrompt() {
 
     okBtn2.addEventListener("click", () => {
         let userName = document.getElementById("userName").value;
-        console.log(userName);
-
+        
         if (userName == "" || userName == null) {
             document.getElementById("functionResult").innerText = "User didn't enter anything";
         }
