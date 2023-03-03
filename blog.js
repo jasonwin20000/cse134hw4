@@ -1,5 +1,4 @@
 let blogPosts = [];
-let blogId = 0;
 
 export function newBlogPost() {
     const newPostBtn = document.getElementById("newPostBtn");
@@ -20,7 +19,6 @@ function insertBlogPost() {
     const dateInput = document.getElementById("blogDate");
     const summaryInput = document.getElementById("blogSummary");
     const blogPostsDiv = document.getElementById("blogPosts");
-    blogId = Math.floor(Math.random() * 100);
 
     blogPosts.push({
         title: titleInput.value,
@@ -28,22 +26,21 @@ function insertBlogPost() {
         summary: summaryInput.value,
     });
 
+    localStorage.setItem('posts', JSON.stringify(blogPosts));
+
     let postIndex = blogPosts.length;
 
     const newPost = document.createElement("h2");
-    newPost.id = `post${blogId}`;
     const newPostContent = document.createTextNode(`Title: ${blogPosts[postIndex - 1].title} Date: ${blogPosts[postIndex - 1].date} Summary: ${blogPosts[postIndex - 1].summary}`);
     newPost.appendChild(newPostContent);
     blogPostsDiv.appendChild(newPost);
 
     const newEditBtn = document.createElement("button");
-    newEditBtn.id = "edit" + blogId;
     const newEditBtnContent = document.createTextNode("Edit");
     newEditBtn.appendChild(newEditBtnContent);
     blogPostsDiv.appendChild(newEditBtn);
 
     const newDeleteBtn = document.createElement("button");
-    newDeleteBtn.id = "delete" + blogId;
     const newDeleteBtnContent = document.createTextNode("Delete");
     newDeleteBtn.appendChild(newDeleteBtnContent);
     blogPostsDiv.appendChild(newDeleteBtn);
@@ -66,12 +63,16 @@ function insertBlogPost() {
         
             let newContent = document.createTextNode(`Title: ${editedContent.title} Date: ${editedContent.date} Summary: ${editedContent.summary}`);
         
-            blogPosts.splice(newPost, 1, editedContent);
+            blogPosts.splice(postIndex - 1, 1, editedContent);
         
             let deleteContent = newPost.childNodes[0];
             newPost.removeChild(deleteContent);
             newPost.appendChild(newContent);
             localStorage.setItem('posts', JSON.stringify(blogPosts));
+            
+            editTitleInput.value = "";
+            editDateInput.value = "";
+            editSummaryInput.value = "";
         }, {once: true}); 
     });
 
@@ -84,5 +85,7 @@ function insertBlogPost() {
         localStorage.setItem('posts', JSON.stringify(blogPosts));
     }); 
 
-    localStorage.setItem('posts', JSON.stringify(blogPosts));
+    titleInput.value = "";
+    dateInput.value = "";
+    summaryInput.value = "";
 }
