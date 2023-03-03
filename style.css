@@ -40,9 +40,18 @@ a:hover {
 }
 
 h1 {
-    padding-top: 5vh;
+    margin-top: 7vh;
+    padding: 2vh;
     animation-duration: 3s;
     animation-name: slidein;
+    background-color: #eee;
+}
+
+h2 {
+    padding: 2vh;
+    animation-duration: 3s;
+    animation-name: slidein;
+    background-color: #eee;
 }
 
 @keyframes slidein {
@@ -57,6 +66,12 @@ h1 {
     }
 }
 
+#aboutMeText {
+    border: 2px solid;
+    border-radius: 2em;
+    padding: 1em;
+}
+
 #profilePic {
     width: 20vh;
 }
@@ -65,12 +80,8 @@ h1 {
     transform: scale(1.5);
 }
 
-#experience {
-    height: 50vh;
-}
-
 #contactMe {
-    height: 10vh;
+    height: 15vh;
 }
 
 @media only screen and (max-width: 767px) {
