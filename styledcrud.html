@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>CSE 134B Homework 4 Simple CRUD Styled</title>
+	<meta name="Author" content="Jason Win">
+    <link rel="stylesheet" href="stylecrud.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type = "text/javascript" src="./styleblog.js"></script>
+</head>
+
+<main>
+    <body>
+        <header>
+            <h1>Blog Posts</h1>
+            <hr>
+        </header>
+        
+        <div id="blogPosts"></div>
+        <br>
+        <button id="newPostBtn"><i class="fa fa-plus-square"></i> Add Blog Post</button>
+
+        <dialog id="customPrompt">
+            <form method="dialog">
+                <label for="blogTitle">Blog Title: </label>
+                <input type="text" id="blogTitle" name="blogTitle">
+                <br>
+                <label for="blogDate">Blog Date: </label>
+                <input type="date" id="blogDate" name="blogDate">
+                <br>
+                <label for="blogSummary">Blog Summary: </label>
+                <br>
+                <input type="textarea" id="blogSummary" name="blogSummary">
+                <br>
+            </form>
+            <form method="dialog">
+                <button id="cancelBtn">Cancel</button>
+                <button id="saveBtn"><i class="fa fa-save"></i> Save</button>
+            </form>
+        </dialog>
+
+        <dialog id="editPrompt">
+            <form method="dialog">
+                <label for="editTitle">Edit Title: </label>
+                <input type="text" id="editTitle" name="editTitle">
+                <br>
+                <label for="editDate">Edit Date: </label>
+                <input type="date" id="editDate" name="editDate">
+                <br>
+                <label for="editSummary">Edit Summary: </label>
+                <br>
+                <input type="textarea" id="editSummary" name="editSummary">
+                <br>
+            </form>
+            <form method="dialog">
+                <button id="cancelBtn2">Cancel</button>
+                <button id="saveBtn2"><i class="fa fa-save"></i> Save</button>
+            </form>
+        </dialog>
+
+        <script type="module">
+            import {newBlogPost} from './styleblog.js'
+
+            newBlogPost();
+        </script>
+    </body>
+</main>
+
+</html>
